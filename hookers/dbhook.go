@@ -24,6 +24,7 @@ type LogInfo struct {
 }
 
 func (lfs *LfsHooker) Run(e *zerolog.Event, level zerolog.Level, msg string) {
+
 	if level != zerolog.NoLevel {
 		_logInfo := &LogInfo{
 			LogContent: msg,

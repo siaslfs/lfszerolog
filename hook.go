@@ -5,12 +5,9 @@ import (
 	"lfszerolog/hookers"
 )
 
-func main() {
+func HookerMysql() {
 	hook := &hookers.LfsHooker{}
-	hook, _ = hook.NewMysqlHooker("root:root@(127.0.0.1:3306)/logs_db?charset=utf8mb4")
+	hook, _ = hook.NewMysqlHooker("root:123456@(127.0.0.1:3306)/logs_db?charset=utf8mb4")
 	hooded := log.Hook(hook)
-	hooded.Info().Str("foo", "bar").Msg("hello world")
-	hooded.Info().Fields(map[string]interface{}{
-		"xx": "test",
-	}).Msg("hello world")
+	hooded.Info().Msg("hello world")
 }
